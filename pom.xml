@@ -1,12 +1,60 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>org.domainobject.etl</groupId>
-	<artifactId>mother-pom</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>org.domainobject.etl.pom</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>ETL Designer Mother POM</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.version>3.7.0</maven.compiler.version>
+
+		<com.google.guava.version>24.1-jre</com.google.guava.version>
+		<org.apache.commons.lang3.version>3.7</org.apache.commons.lang3.version>
+	</properties>
+
+
 	<modules>
+		<module>org.domainobject.etl.api</module>
 		<module>org.domainobject.etl.engine</module>
 	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${com.google.guava.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${org.apache.commons.lang3.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<!-- TODO: Use something like JAVA_HOME_9 -->
+					<fork>true</fork>
+					<executable>/usr/lib/jvm/java-9-oracle/bin/javac</executable>
+					<source>9</source>
+					<target>9</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
