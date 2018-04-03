@@ -26,6 +26,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.domainobject.etl</groupId>
+				<artifactId>org.domainobject.etl.api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>${com.google.guava.version}</version>

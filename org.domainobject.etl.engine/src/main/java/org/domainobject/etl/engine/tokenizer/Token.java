@@ -2,7 +2,7 @@ package org.domainobject.etl.engine.tokenizer;
 
 public abstract class Token {
 
-  protected final Cursor cursor;
+  final Cursor cursor;
 
   private final int start;
   private final int line;
