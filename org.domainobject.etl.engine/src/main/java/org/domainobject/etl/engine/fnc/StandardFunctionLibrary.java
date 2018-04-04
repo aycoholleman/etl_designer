@@ -6,9 +6,6 @@ import org.domainobject.etl.engine.rt.CallInfo;
 import org.domainobject.etl.engine.util.tuple.DoubleInt;
 import org.domainobject.etl.engine.util.tuple.StringInt;
 
-/**
- * @author Ayco Holleman
- */
 @Library(namespace = "std")
 public final class StandardFunctionLibrary extends FunctionLibrary {
 
