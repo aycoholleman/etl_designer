@@ -7,18 +7,20 @@ import org.domainobject.etl.engine.tokenizer.Token;
 
 abstract class Operation<T extends AbstractExpression> extends AbstractExpression {
 
-  ArrayList<T> operands = new ArrayList<>(8);
-  ArrayList<OperatorToken> operators = new ArrayList<>(8);
+  final ArrayList<T> operands = new ArrayList<>();
+  final ArrayList<OperatorToken> operators = new ArrayList<>();
 
   @Override
   void parse() throws ParseException {
     while (true) {
       operands.add(parse(child()));
-      if (done(tokenizer.peek()))
+      if (done(tokenizer.peek())) {
         break;
+      }
       operators.add((OperatorToken) tokenizer.nextToken());
-      if (tokenizer.nextToken() == null)
+      if (tokenizer.nextToken() == null) {
         throw new ParseException(/* TODO */);
+      }
     }
   }
 
@@ -27,8 +29,9 @@ abstract class Operation<T extends AbstractExpression> extends AbstractExpressio
   abstract boolean isOperator(Token t);
 
   private boolean done(Token t) {
-    if (t == null || t.type() != OPERATOR)
+    if (t == null || t.type() != OPERATOR) {
       return false;
+    }
     return isOperator(t);
   }
 
