@@ -27,6 +27,8 @@ public class CursorTest {
     assertTrue("03", c.position() == 3);
     assertTrue("04", c.line() == 0);
     assertTrue("05", c.column() == 3);
+    assertTrue("06", c.prev() == 'c');
+    assertTrue("07", c.peek() == 'e');
   }
 
   @Test
@@ -38,6 +40,8 @@ public class CursorTest {
     assertTrue("03", c.position() == 3);
     assertTrue("04", c.line() == 1);
     assertTrue("05", c.column() == 1);
+    assertTrue("06", c.prev() == '\n');
+    assertTrue("07", c.peek() == 'd');
   }
 
   @Test
