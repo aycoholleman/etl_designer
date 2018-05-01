@@ -51,4 +51,14 @@ public class CursorTest {
     assertTrue("05", c.column() == 0);
   }
 
+  @Test
+  public void test05() {
+    Cursor c = new Cursor("");
+    assertTrue("01", c.at(Cursor.END_OF_RULE));
+    c.forward();
+    assertTrue("02", c.at(Cursor.END_OF_RULE));
+    c.forward();
+    assertTrue("03", c.at(Cursor.END_OF_RULE));
+  }
+
 }

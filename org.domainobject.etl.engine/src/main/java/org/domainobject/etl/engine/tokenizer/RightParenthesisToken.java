@@ -2,8 +2,6 @@ package org.domainobject.etl.engine.tokenizer;
 
 /**
  * @author Ayco Holleman
- * @created Apr 29, 2015
- *
  */
 class RightParenthesisToken extends Token {
 

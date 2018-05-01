@@ -22,6 +22,14 @@ class Cursor {
     this.curr = rule.length() == 0 ? END_OF_RULE : rule.charAt(0);
   }
 
+  Cursor(Cursor c) {
+    this.rule = c.rule;
+    this.pos = c.pos;
+    this.line = c.line;
+    this.col = c.col;
+    this.curr = c.curr;
+  }
+
   char at() {
     return curr;
   }
@@ -60,15 +68,6 @@ class Cursor {
 
   int column() {
     return col;
-  }
-
-  Cursor copy() {
-    Cursor cursor = new Cursor(this.rule);
-    cursor.pos = this.pos;
-    cursor.line = this.line;
-    cursor.col = this.col;
-    cursor.curr = this.curr;
-    return cursor;
   }
 
   private void setLineAndColumn() {
